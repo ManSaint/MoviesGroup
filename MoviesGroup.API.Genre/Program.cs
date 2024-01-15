@@ -11,6 +11,14 @@ builder.Services.AddDbContext<MoviesGroupContext>(
         options.UseSqlServer(
             builder.Configuration.GetConnectionString("MoviesGroupConnection")));
 
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("CorsAllAccessPolicy", opt =>
+        opt.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,29 +30,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+RegisterEndpoints();
+app.UseCors("CorsAllAccessPolicy");
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+void RegisterEndpoints()
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    app.AddEndpoint<Genre, GenrePostDTO, GenrePutDTO, GenreGetDTO>();
 }
