@@ -10,10 +10,6 @@ public interface IDbService
         where TEntity : class, IEntity
         where TDto : class;
 
-    Task<List<TDto>> PostAsync<TEntity, TDto>()
-        where TEntity : class
-        where TDto : class;
-
     Task<TEntity> AddAsync<TEntity, TDto>(TDto dto)
     where TEntity : class
     where TDto : class;

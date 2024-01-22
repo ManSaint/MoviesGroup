@@ -37,13 +37,6 @@ public class DbService : IDbService
         return entity;
     }
 
-    public Task<List<TDto>> PostAsync<TEntity, TDto>()
-        where TEntity : class
-        where TDto : class
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<bool> SaveChangesAsync() => await _db.SaveChangesAsync() >= 0;
 
     public async Task<bool> DeleteAsync<TEntity>(int id) where TEntity : class, IEntity
