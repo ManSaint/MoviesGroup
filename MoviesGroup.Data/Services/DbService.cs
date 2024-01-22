@@ -21,7 +21,6 @@ public class DbService : IDbService
         return _mapper.Map<List<TDto>>(entities); // Converting the fetched entities and mapping the entities into a list of DTOs to send.
     }
 
-    // Check why this isn't being used.
     public virtual async Task<TDto> GetSingleAsync<TEntity, TDto>(int id)
         where TEntity : class, IEntity
         where TDto : class

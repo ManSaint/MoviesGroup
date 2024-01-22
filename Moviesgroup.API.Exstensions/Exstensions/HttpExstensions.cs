@@ -28,7 +28,8 @@ public static class HttpExtensions
     where TEntity : class, IEntity where TDto : class
     {
         try
-        { var entity = await db.GetSingleAsync<TEntity, TDto>(id);
+        {
+            var entity = await db.GetSingleAsync<TEntity, TDto>(id);
 
             if (entity == null)
             {
@@ -37,10 +38,10 @@ public static class HttpExtensions
             return Results.Ok(entity);
         }
 
-        catch (Exception ex)
+        catch
         {
-            return Results.StatusCode(StatusCodes.Status404NotFound);
         }
+        return Results.StatusCode(StatusCodes.Status404NotFound);
     }
 
     public static async Task<IResult> HttpPostAsync<TEntity, TPostDto>(this IDbService db, TPostDto dto)
