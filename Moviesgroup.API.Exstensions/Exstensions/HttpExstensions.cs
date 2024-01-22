@@ -24,37 +24,11 @@ public static class HttpExtensions
         where TEntity : class where TDto : class =>
         Results.Ok(await db.GetAsync<TEntity, TDto>());
 
-    public static async Task<IResult> HttpSingleAsync<TEntity, TDto>(this IDbService db, int id) 
-    where TEntity : class where TDto : class
-    {
-        try 
-        { var entity = await db.GetSingleAsync<TEntity, TDto>(id); 
-            
-            if (entity == null) 
-            { 
-                return Results.NotFound($"Entity with ID {id} not found"); 
-            }
-            return Results.Ok(entity); 
-        }
-
-        catch (Exception ex)
-        {
-            // Log the exception or handle it as appropriate
-            return Results.StatusCode(StatusCodes.Status404NotFound);
-        }
-    }
-
-    public static async Task<IResult> HttpPostAsync<TEntity, TDto>(this IDbService db)
-        where TEntity : class where TDto : class =>
-        Results.Ok(await db.GetAsync<TEntity, TDto>());
-
-
-    public static async Task<IResult> HttpPutAsync<TEntity, TDto>(this IDbService db, int id)
-    where TEntity : class where TDto : class
+    public static async Task<IResult> HttpSingleAsync<TEntity, TDto>(this IDbService db, int id)
+    where TEntity : class, IEntity where TDto : class
     {
         try
-        {
-            var entity = await db.PutAsync<TEntity, TDto>(id);
+        { var entity = await db.GetSingleAsync<TEntity, TDto>(id);
 
             if (entity == null)
             {
@@ -65,31 +39,59 @@ public static class HttpExtensions
 
         catch (Exception ex)
         {
-            // Log the exception or handle it as appropriate
             return Results.StatusCode(StatusCodes.Status404NotFound);
         }
+    }
+
+    public static async Task<IResult> HttpPostAsync<TEntity, TPostDto>(this IDbService db, TPostDto dto)
+        where TEntity : class, IEntity where TPostDto : class
+    { 
+        try
+        {
+            var entity = await db.AddAsync<TEntity, TPostDto>(dto);
+            if (await db.SaveChangesAsync())
+            {
+                var node = typeof(IEntity).Name.ToLower();
+                return Results.Created($"/{node}s/{entity.Id}", entity);
+            }
+        }
+        catch
+        {
+        }
+        return Results.BadRequest($"Couldn't add the {typeof(TEntity).Name} entity.");
+    }
+
+
+    public static async Task<IResult> HttpPutAsync<TEntity, TPutDto>(this IDbService db, TPutDto dto)
+    where TEntity : class, IEntity where TPutDto : class
+    {
+        try
+        {
+            db.Update<TEntity, TPutDto>(dto);
+            if (await db.SaveChangesAsync()) return Results.NoContent();
+        }
+        catch
+        {
+        }
+
+        return Results.BadRequest($"Couldn't update the {typeof(TEntity).Name} entity.");
     }
 
 
     public static async Task<IResult> HttpDeleteAsync<TEntity>(this IDbService db, int id)
-   where TEntity : class
+    where TEntity : class, IEntity
     {
         try
         {
-            var entity = await db.DeleteAsync<TEntity>(id);
+            if (!await db.DeleteAsync<TEntity>(id)) return Results.NotFound();
 
-            if (entity == null)
-            {
-                return Results.NotFound($"Entity with ID {id} not found");
-            }
-            return Results.Ok(entity);
+            if (await db.SaveChangesAsync()) return Results.NoContent();
         }
-
-        catch (Exception ex)
+        catch
         {
-            // Log the exception or handle it as appropriate
-            return Results.StatusCode(StatusCodes.Status404NotFound);
         }
+
+        return Results.BadRequest($"Couldn't delete the {typeof(TEntity).Name} entity.");
     }
 
 }

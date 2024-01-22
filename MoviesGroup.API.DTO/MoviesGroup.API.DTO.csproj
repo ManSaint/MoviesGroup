@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesGroup.Data.Shared\MoviesGroup.Data.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
