@@ -8,8 +8,8 @@ public static class HttpExtensions
         var node = typeof(TEntity).Name.ToLower();
         app.MapGet($"/api/{node}s/" + "{id}", HttpSingleAsync<TEntity, TGetDTO>);
         app.MapGet($"/api/{node}s", HttpGetAsync<TEntity, TGetDTO>);
-        app.MapGet($"/api/{node}s", HttpPostAsync<TEntity, TPostDto>);
-        app.MapGet($"/api/{node}s" + "{id}", HttpPutAsync<TEntity, TPutDto>);
+        app.MapPost($"/api/{node}s", HttpPostAsync<TEntity, TPostDto>);
+        app.MapPut($"/api/{node}s" + "{id}", HttpPutAsync<TEntity, TPutDto>);
         app.MapDelete($"/api/{node}s" + "{id}", HttpDeleteAsync<TEntity>); // DOES NOT USE DTO, REMEMBER.
     }
 
