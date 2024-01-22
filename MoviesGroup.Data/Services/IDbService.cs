@@ -2,26 +2,26 @@
 
 public interface IDbService
 {
-    Task<List<TDto>> GetAsync<TEntity, TDto>()
+    Task<TEntity> AddAsync<TEntity, TDto>(TDto dto)
             where TEntity : class
             where TDto : class;
 
-    Task<TDto> GetSingleAsync<TEntity, TDto>(int id)
-        where TEntity : class, IEntity
+    Task<List<TDto>> GetAsync<TEntity, TDto>()
+        where TEntity : class
         where TDto : class;
 
-    Task<TEntity> AddAsync<TEntity, TDto>(TDto dto)
-    where TEntity : class
-    where TDto : class;
-    
-    Task<bool> SaveChangesAsync();
-
-    bool Delete<TEntity, TDto>(TDto dto)
-    where TEntity : class
-    where TDto : class;
-    Task<bool> DeleteAsync<TEntity>(int id) where TEntity : class, IEntity;
+    Task<TDto> SingleAsync<TEntity, TDto>(int id)
+            where TEntity : class, IEntity
+            where TDto : class;
 
     void Update<TEntity, TDto>(TDto dto)
-        where TEntity : class, IEntity
-        where TDto : class;
+            where TEntity : class, IEntity
+            where TDto : class;
+
+    bool Delete<TEntity, TDto>(TDto dto)
+            where TEntity : class
+            where TDto : class;
+    Task<bool> DeleteAsync<TEntity>(int id) where TEntity : class, IEntity;
+
+    Task<bool> SaveChangesAsync();
 }

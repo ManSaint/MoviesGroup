@@ -1,11 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Internal;
-using System.Runtime.CompilerServices;
-using System.Security.Principal;
-
-
-
-namespace MoviesGroup.API.Extensions;
+﻿namespace MoviesGroup.API.Extensions;
 
 public static class HttpExtensions
 {
@@ -21,47 +14,35 @@ public static class HttpExtensions
     }
 
     public static async Task<IResult> HttpGetAsync<TEntity, TDto>(this IDbService db)
-        where TEntity : class where TDto : class =>
+    where TEntity : class where TDto : class =>
         Results.Ok(await db.GetAsync<TEntity, TDto>());
 
     public static async Task<IResult> HttpSingleAsync<TEntity, TDto>(this IDbService db, int id)
     where TEntity : class, IEntity where TDto : class
     {
-        try
-        {
-            var entity = await db.GetSingleAsync<TEntity, TDto>(id);
-
-            if (entity == null)
-            {
-                return Results.NotFound($"Entity with ID {id} not found");
-            }
-            return Results.Ok(entity);
-        }
-
-        catch
-        {
-        }
-        return Results.StatusCode(StatusCodes.Status404NotFound);
+        var result = await db.SingleAsync<TEntity, TDto>(id);
+        if (result is null) return Results.NotFound();
+        return Results.Ok(result);
     }
 
     public static async Task<IResult> HttpPostAsync<TEntity, TPostDto>(this IDbService db, TPostDto dto)
-        where TEntity : class, IEntity where TPostDto : class
-    { 
+    where TEntity : class, IEntity where TPostDto : class
+    {
         try
         {
             var entity = await db.AddAsync<TEntity, TPostDto>(dto);
             if (await db.SaveChangesAsync())
             {
-                var node = typeof(IEntity).Name.ToLower();
+                var node = typeof(TEntity).Name.ToLower();
                 return Results.Created($"/{node}s/{entity.Id}", entity);
             }
         }
         catch
         {
         }
+
         return Results.BadRequest($"Couldn't add the {typeof(TEntity).Name} entity.");
     }
-
 
     public static async Task<IResult> HttpPutAsync<TEntity, TPutDto>(this IDbService db, TPutDto dto)
     where TEntity : class, IEntity where TPutDto : class
@@ -78,7 +59,6 @@ public static class HttpExtensions
         return Results.BadRequest($"Couldn't update the {typeof(TEntity).Name} entity.");
     }
 
-
     public static async Task<IResult> HttpDeleteAsync<TEntity>(this IDbService db, int id)
     where TEntity : class, IEntity
     {
@@ -94,7 +74,6 @@ public static class HttpExtensions
 
         return Results.BadRequest($"Couldn't delete the {typeof(TEntity).Name} entity.");
     }
-
 }
 
 

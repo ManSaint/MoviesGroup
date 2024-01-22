@@ -1,4 +1,5 @@
 ﻿namespace MoviesGroup.API.DTO;
+
 public class GenrePostDTO
 {
     public string Name { get; set; } = string.Empty;
