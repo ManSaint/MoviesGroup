@@ -12,7 +12,7 @@ public class MoviePutDTO : MoviePostDTO
     public int Id { get; set; }
 }
 
-public class MovieGetDto : MoviePutDTO
+public class MovieGetDTO : MoviePutDTO
 {
     public List<GenreSmallGetDTO>? Genres { get; set; }
     public List<ActorGetDTO>? Actors { get; set; }
