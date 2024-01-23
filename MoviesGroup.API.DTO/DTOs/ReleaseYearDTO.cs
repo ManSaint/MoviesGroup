@@ -3,6 +3,8 @@
 public class ReleaseYearPostDTO
 {
     public int YearNum { get; set; }
+    public OptionType OptionType { get; set; }
+    public bool IsSelected { get; set; }
 }
 
 public class ReleaseYearPutDTO : ReleaseYearPostDTO

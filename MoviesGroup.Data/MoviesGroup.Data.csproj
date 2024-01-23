@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MoviesGroup.API.DTO\MoviesGroup.API.DTO.csproj" />
     <ProjectReference Include="..\MoviesGroup.Data.Shared\MoviesGroup.Data.Shared.csproj" />
   </ItemGroup>
 

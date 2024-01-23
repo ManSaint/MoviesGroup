@@ -41,6 +41,18 @@ app.Run();
 void RegisterEndpoints()
 {
     app.AddEndpoint<Genre, GenrePostDTO, GenrePutDTO, GenreGetDTO>();
+    //app.MapGet($"/api/categorieswithdata", async (IDbService db) =>
+    //{
+    //    try
+    //    {
+    //        return Results.Ok(await ((GenreDbService)db).GetGenresWithAllRelatedDataAsync());
+    //    }
+    //    catch
+    //    {
+    //    }
+
+    //    return Results.BadRequest($"Couldn't get the requested products of type {typeof(Movie).Name}.");
+    //});
 }
 
 void ConfigureAutoMapper()
