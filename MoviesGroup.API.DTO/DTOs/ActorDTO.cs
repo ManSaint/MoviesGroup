@@ -14,5 +14,5 @@ public class ActorPutDTO : ActorPostDTO
 
 public class ActorGetDTO : ActorPutDTO
 {
-
+    //public List<MovieGetDTO>? Movies { get; set; }
 }
