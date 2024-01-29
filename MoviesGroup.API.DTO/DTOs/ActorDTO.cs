@@ -14,5 +14,5 @@ public class ActorPutDTO : ActorPostDTO
 
 public class ActorGetDTO : ActorPutDTO
 {
-
+    // ADD A LIST FOR MOVIES TO LINK IN THE GET FUNCTION, EVENTUALLY.
 }

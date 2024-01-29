@@ -38,7 +38,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actors");
+                    b.ToTable("Actors", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.AgeLimit", b =>
@@ -54,7 +54,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AgeLimits");
+                    b.ToTable("AgeLimits", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.Filter", b =>
@@ -78,7 +78,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Filters");
+                    b.ToTable("Filters", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.Genre", b =>
@@ -95,7 +95,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genres", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.GenreFilter", b =>
@@ -110,7 +110,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasIndex("FilterId");
 
-                    b.ToTable("GenreFilters");
+                    b.ToTable("GenreFilters", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.Movie", b =>
@@ -142,7 +142,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasIndex("StreamingServiceId");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.MovieActor", b =>
@@ -157,7 +157,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasIndex("ActorId");
 
-                    b.ToTable("MovieActors");
+                    b.ToTable("MovieActors", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.MovieGenre", b =>
@@ -172,7 +172,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("MovieGenres");
+                    b.ToTable("MovieGenres", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.ReleaseYear", b =>
@@ -188,7 +188,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ReleaseYears");
+                    b.ToTable("ReleaseYears", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.StreamingService", b =>
@@ -205,7 +205,7 @@ namespace MoviesGroup.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StreamingServices");
+                    b.ToTable("StreamingServices", (string)null);
                 });
 
             modelBuilder.Entity("MoviesGroup.Data.Entities.GenreFilter", b =>
