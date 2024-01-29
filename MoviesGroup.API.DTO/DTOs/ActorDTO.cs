@@ -15,4 +15,5 @@ public class ActorPutDTO : ActorPostDTO
 public class ActorGetDTO : ActorPutDTO
 {
     //public List<MovieGetDTO>? Movies { get; set; }
+    // ADD A LIST FOR MOVIES TO LINK IN THE GET FUNCTION, EVENTUALLY.
 }

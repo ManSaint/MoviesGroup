@@ -14,5 +14,5 @@ public class StreamingServicePutDTO : StreamingServicePostDTO
 
 public class StreamingServiceGetDTO : StreamingServicePutDTO
 {
-
+    // ADD A LIST FOR MOVIES TO LINK IN THE GET FUNCTION, EVENTUALLY.
 }

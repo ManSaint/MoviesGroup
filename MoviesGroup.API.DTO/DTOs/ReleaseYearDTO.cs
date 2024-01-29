@@ -14,5 +14,5 @@ public class ReleaseYearPutDTO : ReleaseYearPostDTO
 
 public class ReleaseYearGetDTO : ReleaseYearPutDTO
 {
-
+    // ADD A LIST FOR MOVIES TO LINK IN THE GET FUNCTION, EVENTUALLY.
 }
