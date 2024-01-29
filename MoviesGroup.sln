@@ -9,11 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.Data.Shared", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.API.Genre", "MoviesGroup.API.Genre\MoviesGroup.API.Genre.csproj", "{6289AB4B-E5B6-4018-BB19-9F3E295A5CFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.API.Exstensions", "Moviesgroup.API.Exstensions\MoviesGroup.API.Exstensions.csproj", "{2E890B67-8320-4B53-B6CF-894645440179}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.API.Exstensions", "Moviesgroup.API.Exstensions\MoviesGroup.API.Exstensions.csproj", "{2E890B67-8320-4B53-B6CF-894645440179}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.API.DTO", "MoviesGroup.API.DTO\MoviesGroup.API.DTO.csproj", "{D6F4EA06-6AFF-4A54-AA46-1A0C6CFA8724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.API.DTO", "MoviesGroup.API.DTO\MoviesGroup.API.DTO.csproj", "{D6F4EA06-6AFF-4A54-AA46-1A0C6CFA8724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.API.Movie", "MoviesGroup.API.Movie\MoviesGroup.API.Movie.csproj", "{11870D02-F74A-41A7-9523-3176D3283135}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.API.Movie", "MoviesGroup.API.Movie\MoviesGroup.API.Movie.csproj", "{11870D02-F74A-41A7-9523-3176D3283135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.UI", "MoviesGroup.UI\MoviesGroup.UI.csproj", "{E4F88E78-F2B9-4573-BD85-8264E3CE8CC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.API.Filter", "MoviesGroup.API.Filter\MoviesGroup.API.Filter.csproj", "{2CE8FEA1-FDDE-4614-84F6-757EBA2728D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{11870D02-F74A-41A7-9523-3176D3283135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11870D02-F74A-41A7-9523-3176D3283135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11870D02-F74A-41A7-9523-3176D3283135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F88E78-F2B9-4573-BD85-8264E3CE8CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F88E78-F2B9-4573-BD85-8264E3CE8CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F88E78-F2B9-4573-BD85-8264E3CE8CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F88E78-F2B9-4573-BD85-8264E3CE8CC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE8FEA1-FDDE-4614-84F6-757EBA2728D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE8FEA1-FDDE-4614-84F6-757EBA2728D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE8FEA1-FDDE-4614-84F6-757EBA2728D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE8FEA1-FDDE-4614-84F6-757EBA2728D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
