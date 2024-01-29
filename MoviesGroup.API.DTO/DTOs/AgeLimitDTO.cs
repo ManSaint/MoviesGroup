@@ -2,7 +2,7 @@
 
 public class AgeLimitPostDTO
 {
-    public int AgeNum { get; set; }
+    public int Limit { get; set; }
     public OptionType OptionType { get; set; }
     public bool IsSelected { get; set; }
 }
