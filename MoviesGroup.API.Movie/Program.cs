@@ -84,8 +84,8 @@ void ConfigureAutoMapper()
         cfg.CreateMap<ReleaseYear, ReleaseYearGetDTO>().ReverseMap();
         cfg.CreateMap<MovieActor, MovieActorPostDTO>().ReverseMap();
         cfg.CreateMap<MovieActor, MovieActorDeleteDTO>().ReverseMap();
-        cfg.CreateMap<MovieActor, MovieGenrePostDTO>().ReverseMap();
-        //cfg.CreateMap<Movie, MovieGenreDeleteDTO>().ReverseMap();
+        cfg.CreateMap<MovieGenre, MovieGenrePostDTO>().ReverseMap();
+        //cfg.CreateMap<MovieGenre, MovieGenreDeleteDTO>().ReverseMap();
 
 
         //cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
