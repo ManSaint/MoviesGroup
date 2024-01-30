@@ -16,7 +16,8 @@ public class MoviePutDTO : MoviePostDTO
 
 public class MovieGetDTO : MoviePutDTO
 {
-    public List<GenreSmallGetDTO>? Genres { get; set; }
+    //public List<GenreSmallGetDTO>? Genres { get; set; }
+    public List<GenreGetDTO>? Genres { get; set; } // Might require migration and database update to make it work.
     public List<ActorGetDTO>? Actors { get; set; }
     public ReleaseYearGetDTO? ReleaseYear { get; set; } // Check which need to be List and which do not.
     public StreamingServiceGetDTO? StreamingService { get; set; }
