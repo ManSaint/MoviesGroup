@@ -42,6 +42,7 @@ app.Run();
 
 void RegisterEndpoints()
 {
+    app.AddEndpoint<Genre, GenrePostDTO, GenrePutDTO, GenreGetDTO>();
     app.AddEndpoint<Movie, MoviePostDTO, MoviePutDTO, MovieGetDTO>();
     app.AddEndpoint<Actor, ActorPostDTO, ActorPutDTO, ActorGetDTO>();
     app.AddEndpoint<StreamingService, StreamingServicePostDTO, StreamingServicePutDTO, StreamingServiceGetDTO>();
