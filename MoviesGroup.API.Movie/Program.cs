@@ -67,6 +67,10 @@ void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
+        cfg.CreateMap<Genre, GenrePostDTO>().ReverseMap();
+        cfg.CreateMap<Genre, GenrePutDTO>().ReverseMap();
+        cfg.CreateMap<Genre, GenreGetDTO>().ReverseMap();
+        cfg.CreateMap<Genre, GenreSmallGetDTO>().ReverseMap();
         cfg.CreateMap<Movie, MoviePostDTO>().ReverseMap();
         cfg.CreateMap<Movie, MoviePutDTO>().ReverseMap();
         cfg.CreateMap<Movie, MovieGetDTO>().ReverseMap();

@@ -9,6 +9,7 @@ public class MovieDbService(MoviesGroupContext db, IMapper mapper) : DbService(d
         IncludeNavigationsFor<Actor>();
         IncludeNavigationsFor<AgeLimit>();
         IncludeNavigationsFor<StreamingService>();
+        IncludeNavigationsFor<Genre>();
         return await base.GetAsync<TEntity, TDto>();
     }
 }
