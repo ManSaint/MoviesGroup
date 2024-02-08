@@ -1,8 +1,8 @@
-﻿//namespace eShop.UI.Models.Link;
+﻿namespace MoviesGroup.UI.Models.Link;
 
-//public class LinkOption
-//{
-//    public int id { get; set; }
-//    public string Name { get; set; }
-//    public bool IsSelected { get; set; }
-//}
+public class LinkOption
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public bool IsSelected { get; set; }
+}
