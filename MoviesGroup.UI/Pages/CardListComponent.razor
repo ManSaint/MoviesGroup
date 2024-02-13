@@ -1,4 +1,4 @@
-﻿@* <div class="d-flex w-75 mx-auto my-3 product-card-list">
+﻿<div class="d-flex w-75 mx-auto my-3 product-card-list">
     @foreach (var card in Cards)
     {
         <CardComponent Card="card" />
@@ -8,8 +8,8 @@
 @code {
     List<ProductCard> Cards = new()
     {
-        new ProductCard { Image = "images/images/product_9.png", Heading = "Product 1"},
-        new ProductCard { Image = "images/images/product_8.png", Heading = "Product 2"},
-        new ProductCard { Image = "images/images/product_7.png", Heading = "Product 3"}
+        new ProductCard { Image = "images/img_action.png", Heading = "Action"},
+        new ProductCard { Image = "images/img_comedy", Heading = "Comedy"},
+        new ProductCard { Image = "images/img_cooking", Heading = "Cooking"}
     };
-} *@
+}

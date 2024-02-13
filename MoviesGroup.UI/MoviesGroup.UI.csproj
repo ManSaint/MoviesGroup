@@ -12,13 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MoviesGroup.API.DTO\MoviesGroup.API.DTO.csproj" />
     <ProjectReference Include="..\MoviesGroup.UI.Http\MoviesGroup.UI.Http.csproj" />
     <ProjectReference Include="..\MoviesGroup.UI.Models\MoviesGroup.UI.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesGroup.API.DTO\MoviesGroup.API.DTO.csproj" />
+  </ItemGroup>
+
 </Project>
