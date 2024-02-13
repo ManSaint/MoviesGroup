@@ -3,7 +3,7 @@
 using MoviesGroup.API.DTO;
 using System.Text.Json;
 
-namespace MoviesGroup.UI.Http.Clients;
+namespace MoviesGroup.UI.Http;
 
 public class MovieHttpClient
 {
@@ -18,7 +18,7 @@ public class MovieHttpClient
 
         _httpClient = httpClient;
 
-        _httpClient.BaseAddress = new Uri($"{_baseAddress}products");
+        _httpClient.BaseAddress = new Uri($"{_baseAddress}movies");
 
     }
 

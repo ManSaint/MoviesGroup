@@ -1,15 +1,17 @@
-﻿namespace eShop.UI.Services;
+﻿using AutoMapper;
+
+namespace MoviesGroup.UI.Services;
 
 public class UIService(GenreHttpClient genreHttp,
-    GenreHttpClient productHttp, IMapper mapper)
+    MovieHttpClient movieHttp, IMapper mapper)
 {
-    List<GenreGetDTO> Categories { get; set; } = [];
-    public List<GenreGetDTO> Products { get; private set; } = [];
-    public List<LinkGroup> CaregoryLinkGroups { get; private set; } =
+    List<GenreGetDTO> Genres { get; set; } = [];
+    public List<MovieGetDTO> Movies { get; private set; } = [];
+    public List<LinkGroup> GenreLinkGroups { get; private set; } =
     [
         new LinkGroup
         {
-            Name = "Categories"
+            Name = "Genres"
             /*,LinkOptions = new(){
                 new LinkOption { Id = 1, Name = "Women", IsSelected = true },
                 new LinkOption { Id = 2, Name = "Men", IsSelected = false },
@@ -17,25 +19,25 @@ public class UIService(GenreHttpClient genreHttp,
             }*/
         }
     ];
-    public int CurrentCategoryId { get; set; }
+    public int CurrentGenreId { get; set; }
 
     public async Task GetLinkGroup()
     {
-        Categories = await genreHttp.GetGenresAsync();
-        CaregoryLinkGroups[0].LinkOptions = mapper.Map<List<LinkOption>>(Categories);
-        var linkOption = CaregoryLinkGroups[0].LinkOptions.FirstOrDefault();
+        Genres = await genreHttp.GetGenresAsync();
+        GenreLinkGroups[0].LinkOptions = mapper.Map<List<LinkOption>>(Genres);
+        var linkOption = GenreLinkGroups[0].LinkOptions.FirstOrDefault();
         linkOption!.IsSelected = true;
     }
 
-    public async Task OnCategoryLinkClick(int id)
+    public async Task OnGenreLinkClick(int id)
     {
-        CurrentCategoryId = id;
-        await GetProductsAsync();
-        CaregoryLinkGroups[0].LinkOptions.ForEach(l => l.IsSelected = false);
-        CaregoryLinkGroups[0].LinkOptions.Single(l => l.Id.Equals(CurrentCategoryId)).IsSelected = true;
+        CurrentGenreId = id;
+        await GetMoviesAsync();
+        GenreLinkGroups[0].LinkOptions.ForEach(l => l.IsSelected = false);
+        GenreLinkGroups[0].LinkOptions.Single(l => l.Id.Equals(CurrentGenreId)).IsSelected = true;
     }
 
-    public async Task GetProductsAsync() =>
-        Products = await productHttp.GetMoviesAsync(CurrentCategoryId);
+    public async Task GetMoviesAsync() =>
+        Movies = await movieHttp.GetMoviesAsync(CurrentGenreId);
 
 }
