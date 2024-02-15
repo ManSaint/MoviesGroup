@@ -13,7 +13,7 @@ public class ActorPutDTO : ActorPostDTO
 
 public class ActorGetDTO : ActorPutDTO
 {
-    public List<MovieGetDTO>? Movies { get; set; }
+    //public List<MovieGetDTO>? Movies { get; set; }
     public bool IsSelected { get; set; }
     // ADD A LIST FOR MOVIES TO LINK IN THE GET FUNCTION, EVENTUALLY.
 }
