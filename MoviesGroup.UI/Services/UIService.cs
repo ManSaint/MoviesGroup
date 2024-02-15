@@ -12,11 +12,6 @@ public class UIService(GenreHttpClient genreHttp,
         new LinkGroup
         {
             Name = "Genres"
-            /*,LinkOptions = new(){
-                new LinkOption { Id = 1, Name = "Women", IsSelected = true },
-                new LinkOption { Id = 2, Name = "Men", IsSelected = false },
-                new LinkOption { Id = 3, Name = "Children", IsSelected = false }
-            }*/
         }
     ];
     public int CurrentGenreId { get; set; }

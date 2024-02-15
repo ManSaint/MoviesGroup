@@ -70,6 +70,8 @@ public class DbService : IDbService
 
     public void IncludeNavigationsFor<TEntity>() where TEntity : class
     {
+        // GetNavigations is for one-to-many relations.
+        // GetSkipNavigations are for many-to-many (Lists and ICollections). Skip because there is a junction table to use.
         var propertyNames = _db.Model.FindEntityType(typeof(TEntity))?.GetNavigations().Select(e => e.Name);
         var navigationPropertyNames = _db.Model.FindEntityType(typeof(TEntity))?.GetSkipNavigations().Select(e => e.Name);
 

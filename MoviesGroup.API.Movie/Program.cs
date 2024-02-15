@@ -15,7 +15,7 @@ builder.Services.AddDbContext<MoviesGroupContext>(
 
 builder.Services.AddCors(policy =>
 {
-    policy.AddPolicy("CorsAllAccessPolicy", opt =>
+    policy.AddPolicy("CorsAllAccessPolicy2", opt =>
         opt.AllowAnyOrigin()
            .AllowAnyHeader()
            .AllowAnyMethod());
@@ -36,7 +36,7 @@ app.UseHttpsRedirection();
 
 RegisterEndpoints();
 
-app.UseCors("CorsAllAccessPolicy");
+app.UseCors("CorsAllAccessPolicy2   ");
 
 app.Run();
 

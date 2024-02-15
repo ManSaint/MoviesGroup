@@ -4,7 +4,6 @@ public class AgeLimitPostDTO
 {
     public int Limit { get; set; }
     public OptionType OptionType { get; set; }
-    public bool IsSelected { get; set; }
 }
 
 public class AgeLimitPutDTO : AgeLimitPostDTO
@@ -14,5 +13,6 @@ public class AgeLimitPutDTO : AgeLimitPostDTO
 
 public class AgeLimitGetDTO : AgeLimitPutDTO
 {
+    public bool IsSelected { get; set; }
     // ADD A LIST FOR MOVIES TO LINK IN THE GET FUNCTION, EVENTUALLY.
 }
