@@ -10,7 +10,7 @@ public class GenreHttpClient
     public GenreHttpClient(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri($"{_baseAddress}categorys");
+        _httpClient.BaseAddress = new Uri($"{_baseAddress}genres");
     }
 
     public async Task<List<GenreGetDTO>> GetGenresAsync()
