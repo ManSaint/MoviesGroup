@@ -1,4 +1,10 @@
-﻿<section class="d-flex flex-wrap">
+﻿@using MoviesGroup.UI.Storage.Services
+@inject IStorageService Storage
+
+@* <secttion>
+    <h3>ProductComponent</h3>
+</secttion>
+<section class="d-flex flex-wrap">
     @foreach (var product in Service!.Movies)
     {
         <div class="card mb-3" style="max-width: 540px;">
