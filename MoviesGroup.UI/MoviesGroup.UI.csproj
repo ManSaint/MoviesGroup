@@ -17,6 +17,7 @@
     <ProjectReference Include="..\MoviesGroup.API.DTO\MoviesGroup.API.DTO.csproj" />
     <ProjectReference Include="..\MoviesGroup.UI.Http\MoviesGroup.UI.Http.csproj" />
     <ProjectReference Include="..\MoviesGroup.UI.Models\MoviesGroup.UI.Models.csproj" />
+    <ProjectReference Include="..\MoviesGroup.UI.Storage\MoviesGroup.UI.Storage.csproj" />
   </ItemGroup>
 
   <ItemGroup>
