@@ -7,7 +7,7 @@ public class MoviePostDTO
     public int AgeLimitId { get; set; }
     public int ReleaseYearId { get; set; }
     public int StreamingServiceId { get; set; }
-    //public string? Description { get; set; } = string.Empty;
+    public string PictureURL { get; set; } = string.Empty;
 }
 
 public class MoviePutDTO : MoviePostDTO
