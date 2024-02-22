@@ -1,26 +1,27 @@
-﻿@using MoviesGroup.UI.Storage.Services
+﻿@using MoviesGroup.UI.Extensions
+@using MoviesGroup.UI.Storage.Services
 @inject IMapper mapper
 
-@* <secttion>
+<secttion>
     <h3>ProductComponent</h3>
 </secttion>
 <section class="d-flex flex-wrap">
-    @foreach (var product in Service!.Movies)
+    @foreach (var movie in Service!.Movies)
     {
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="@product.PictureURL" class="img-fluid rounded-start" alt="...">
+                    <img src="@movie.PictureURL" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">@product.Name</h5>
-                        <p class="card-text">@product.Description.Truncate(300)</p>
+                        <h5 class="card-title">@movie.Name</h5>
+                        <p class="card-text">@movie.Description.Truncate(300)</p>
                     </div>
                 </div>
             </div>
-           @*  <div class="d-flex card-footer bg-white g-0 justify-content-start">
-                @if (product.Actors!.Count > 0)
+            <div class="d-flex card-footer bg-white g-0 justify-content-start">
+@*                 @if (product.Actors!.Count > 0)
                 {
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         @foreach (var size in product.Actors)
@@ -33,8 +34,8 @@
                                    for="size-@product.Id-@size.Id">@size.Name.ToUpper()</label>
                         }
                     </div>
-                }
-                @if (product.Colors!.Count > 0)
+                } *@
+@*                 @if (product.Colors!.Count > 0)
                 {
                     foreach (var color in product.Colors)
                     {
@@ -46,12 +47,13 @@
                                    for="color-@product.Id-@color.Id"><i class="bi-check"></i></label>
                         </div>
                     }
-                }
+                } *@
 
         <button class="btn btn-sm btn-success" @onclick="() => AddToCart(movie)"><i class="bi-cart"></i></button>
             </div> 
+            </div>
 
-        </div>
+         </div>
     }
 </section>*@
 
