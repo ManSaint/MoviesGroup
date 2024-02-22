@@ -63,21 +63,21 @@
         </div>
     </div>
 </nav>
-<CartComponent OnRemoveCartItem="OnRemoveCartItem" CartItems="UICartService.CartItems" /> @*22-02-22*@
+@* <CartComponent OnRemoveCartItem="OnRemoveCartItem" CartItems="UICartService.CartItems" /> @*22-02-22*@
 <CartComponent />
 
 @code {
-    [Parameter] public UIService? UICartService { get; set; }
+    // [Parameter] public UIService? UICartService { get; set; }
 
-    protected override async Task OnParametersSetAsync()
-    {
-        UICartService!.CartItems =
-            await UICartService!.ReadStorage<List<CartItemDTO>>("CartItems") ?? [];
-    }
+    // protected override async Task OnParametersSetAsync()
+    // {
+    //     UICartService!.CartItems =
+    //         await UICartService!.ReadStorage<List<CartItemDTO>>("CartItems") ?? [];
+    // }
 
-    async Task OnRemoveCartItem(CartItemDTO? cartItem)
-    {
-        UICartService!.CartItems.Remove(cartItem);
-        await UICartService!.SaveToStorage("CartItems", UICartService!.CartItems);
-    }
+    // async Task OnRemoveCartItem(CartItemDTO? cartItem)
+    // {
+    //     UICartService!.CartItems.Remove(cartItem);
+    //     await UICartService!.SaveToStorage("CartItems", UICartService!.CartItems);
+    // }
 }
