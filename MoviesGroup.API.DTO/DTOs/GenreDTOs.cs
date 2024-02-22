@@ -13,6 +13,7 @@ public class GenrePutDTO : GenrePostDTO
 public class GenreGetDTO : GenrePutDTO
 {
     //public List<FilterGetDTO>? Filters { get; set; }
+    public bool IsSelected { get; set; }
 }
 
 public class GenreSmallGetDTO : GenrePutDTO

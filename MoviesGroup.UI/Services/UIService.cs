@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
+using MoviesGroup.UI.Storage.Services;
 
 namespace MoviesGroup.UI.Services;
 
 public class UIService(GenreHttpClient genreHttp,
-    MovieHttpClient movieHttp, IMapper mapper)
+    MovieHttpClient movieHttp, IMapper mapper, IStorageService storage)
 {
     List<GenreGetDTO> Genres { get; set; } = [];
     public List<MovieGetDTO> Movies { get; private set; } = [];
+    public List<CartItemDTO> CartItems { get; set; } = [];
     public List<LinkGroup> GenreLinkGroups { get; private set; } =
     [
         new LinkGroup
@@ -35,4 +37,24 @@ public class UIService(GenreHttpClient genreHttp,
     public async Task GetMoviesAsync() =>
         Movies = await movieHttp.GetMoviesAsync(CurrentGenreId);
 
+    public async Task<T> ReadStorage<T>(string key)// where T : class
+    {
+        //if (string.IsNullOrEmpty(key) || storage is null) return new T();
+        return await storage.GetAsync<T>(key);
+    }
+    public async Task<T> ReadSingleStorage<T>(string key)// where T : class
+    {
+        return await storage.GetAsync<T>(key);
+    }
+
+    public async Task SaveToStorage<T>(string key, T value)// where T : class
+    {
+        if (string.IsNullOrEmpty(key) || storage is null) return;
+        await storage.SetAsync<T>(key, value);
+    }
+    public async Task RemoveFromStorage(string key)// where T : class
+    {
+        if (string.IsNullOrEmpty(key) || storage is null) return;
+        await storage.RemoveAsync(key);
+    }
 }
