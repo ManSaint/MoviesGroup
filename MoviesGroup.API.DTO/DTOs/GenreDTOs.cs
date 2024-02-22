@@ -13,6 +13,7 @@ public class GenrePutDTO : GenrePostDTO
 public class GenreGetDTO : GenrePutDTO
 {
     //public List<FilterGetDTO>? Filters { get; set; }
+    //public List<MovieGetDTO>? Movies { get; set; }
 }
 
 public class GenreSmallGetDTO : GenrePutDTO

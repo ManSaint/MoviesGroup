@@ -15,7 +15,7 @@ builder.Services.AddDbContext<MoviesGroupContext>(
 
 builder.Services.AddCors(policy =>
 {
-    policy.AddPolicy("CorsAllAccessPolicy2", opt =>
+    policy.AddPolicy("CorsAllAccessPolicy", opt =>
         opt.AllowAnyOrigin()
            .AllowAnyHeader()
            .AllowAnyMethod());
@@ -36,7 +36,7 @@ app.UseHttpsRedirection();
 
 RegisterEndpoints();
 
-app.UseCors("CorsAllAccessPolicy2   ");
+app.UseCors("CorsAllAccessPolicy");
 
 app.Run();
 
@@ -50,18 +50,19 @@ void RegisterEndpoints()
     app.AddEndpoint<ReleaseYear, ReleaseYearPostDTO, ReleaseYearPutDTO, ReleaseYearGetDTO>();
     app.AddEndpoint<MovieActor, MovieActorPostDTO>();
     app.AddEndpoint<MovieGenre, MovieGenrePostDTO>();
-    //app.MapGet($"/api/categorieswithdata", async (IDbService db) =>
-    //{
-    //    try
-    //    {
-    //        return Results.Ok(await ((GenreDbService)db).GetGenresWithAllRelatedDataAsync());
-    //    }
-    //    catch
-    //    {
-    //    }
+    app.MapGet($"/api/moviesbygenre/{{genreId}}", async (IDbService db, int genreId) =>
+    {
+        try
+        {
+            var result = await ((MovieDbService)db).GetMoviesByGenreAsync(genreId);
+            return Results.Ok(result);
+        }
+        catch
+        {
+        }
 
-    //    return Results.BadRequest($"Couldn't get the requested products of type {typeof(Movie).Name}.");
-    //});
+        return Results.BadRequest($"Couldn't get the requested movies of type {typeof(Movie).Name}.");
+    });
 }
 
 void ConfigureAutoMapper()

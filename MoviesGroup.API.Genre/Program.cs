@@ -54,6 +54,12 @@ void RegisterEndpoints()
     //    return Results.BadRequest($"Couldn't get the requested products of type {typeof(Movie).Name}.");
     //});
 }
+void RegisterServices()
+{
+    ConfigureAutoMapper();
+    builder.Services.AddScoped<IDbService, GenreDbService>();
+
+}
 
 void ConfigureAutoMapper()
 {
@@ -63,18 +69,11 @@ void ConfigureAutoMapper()
         cfg.CreateMap<Genre, GenrePutDTO>().ReverseMap();
         cfg.CreateMap<Genre, GenreGetDTO>().ReverseMap();
         cfg.CreateMap<Genre, GenreSmallGetDTO>().ReverseMap();
+        cfg.CreateMap<MovieGenre, MovieGenreDTO>().ReverseMap();
+
         //cfg.CreateMap<Filter, FilterGetDTO>().ReverseMap();
         //cfg.
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
 }
-
-void RegisterServices()
-{
-    ConfigureAutoMapper();
-    builder.Services.AddScoped<IDbService, GenreDbService>();
-
-}
-
-
