@@ -1,6 +1,6 @@
 ﻿@using MoviesGroup.UI.Extensions
 @using MoviesGroup.UI.Storage.Services
-@inject IStorageService Storage
+@inject IMapper mapper
 
 <secttion>
     <h3>ProductComponent</h3>
@@ -50,11 +50,12 @@
                 } *@
 
         <button class="btn btn-sm btn-success" @onclick="() => AddToCart(movie)"><i class="bi-cart"></i></button>
+            </div> 
             </div>
 
          </div>
     }
-</section>
+</section>*@
 
 @code {
     [CascadingParameter(Name = "Service")] public UIService? Service { get; set; }
@@ -81,8 +82,30 @@
     }*/
 
 
-    void AddToCart(MovieGetDTO movie)
+    async Task AddToCart(MovieGetDTO movie) // 24-02-22
     {
+        //TODO: Spara flera produkter till shopping cart
+        //TODO: Visa produkterna i shopping carten
+        //TODO: Ta bort produkt från shopping cart
+        var cartItem = mapper.Map<CartItemDTO>(movie);
+        cartItem.Genre = movie.Genres!.FirstOrDefault(g => g.IsSelected);
+        cartItem.Actor = movie.Actors!.FirstOrDefault(ac => ac.IsSelected);
+        cartItem.AgeLimit = movie.AgeLimits!.FirstOrDefault(ag => ag.IsSelected);
+        cartItem.StreamingService = movie.StreamingServices!.FirstOrDefault(s => s.IsSelected);
+        cartItem.ReleaseYear = movie.ReleaseYears!.FirstOrDefault(r => r.IsSelected);
+        Service!.CartItems.Add(cartItem);
+        await Service!.SaveToStorage("CartItems", Service!.CartItems);
 
+        //await Storage.SetAsync("MyKey", product);
+        //await Service!.SaveToStorage("MyKey", product);
+
+        //var prod = await Storage.GetAsync<ProductGetDTO>("MyKey");
+        //var prod = await Service!.ReadSingleStorage<ProductGetDTO>("MyKey");
+
+
+        //await Storage.RemoveAsync("MyKey");
+        //await Service!.RemoveFromStorage("MyKey");
+
+        //var product = Service!.Products.Single(p => p.Id == id);
     }
 }
