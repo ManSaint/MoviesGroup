@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace MoviesGroup.Data.Services;
+﻿namespace MoviesGroup.Data.Services;
 
 public class MovieDbService(MoviesGroupContext db, IMapper mapper) : DbService(db, mapper)
 {

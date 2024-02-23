@@ -1,8 +1,4 @@
-﻿
-using Blazored.LocalStorage;
-using MoviesGroup.UI.Storage.Services;
-
-namespace MoviesGroup.UI.Storage.Services;
+﻿namespace MoviesGroup.UI.Storage.Services;
 
 public class LocalStorage(ILocalStorageService localStorage) : IStorageService
 {

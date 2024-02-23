@@ -1,7 +1,4 @@
-﻿using Blazored.SessionStorage;
-using MoviesGroup.UI.Storage.Services;
-
-namespace MoviesGroup.UI.Storage.Services;
+﻿namespace MoviesGroup.UI.Storage.Services;
 
 public class SessionStorage(ISessionStorageService sessionStorage)
     : IStorageService

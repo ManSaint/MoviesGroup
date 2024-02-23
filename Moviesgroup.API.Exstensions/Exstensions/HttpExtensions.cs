@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace MoviesGroup.API.Extensions;
+﻿namespace MoviesGroup.API.Extensions;
 
 public static class HttpExtensions
 {
@@ -117,7 +115,3 @@ public static class HttpExtensions
     }
 
 }
-
-
-
-

@@ -1,12 +1,3 @@
-using AutoMapper;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using MoviesGroup.UI;
-using MoviesGroup.UI.Services;
-using Blazored.LocalStorage;
-using Blazored.SessionStorage;
-using MoviesGroup.UI.Storage.Services;
-
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");

@@ -1,5 +1,3 @@
-using AutoMapper;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -107,5 +105,3 @@ void RegisterServices()
     builder.Services.AddScoped<IDbService, MovieDbService>();
 
 }
-
-

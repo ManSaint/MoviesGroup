@@ -1,5 +1,10 @@
-﻿global using MoviesGroup.UI.Http;
+﻿global using AutoMapper;
+global using Blazored.LocalStorage;
+global using Microsoft.AspNetCore.Components.Web;
+global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using MoviesGroup.API.DTO;
+global using MoviesGroup.UI;
+global using MoviesGroup.UI.Http;
 global using MoviesGroup.UI.Models.Link;
-global using AutoMapper;
-//global using MoviesGroup.UI.Extensions;
+global using MoviesGroup.UI.Services;
+global using MoviesGroup.UI.Storage.Services;

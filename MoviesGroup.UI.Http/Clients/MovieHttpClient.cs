@@ -1,7 +1,4 @@
-﻿using MoviesGroup.API.DTO;
-using System.Text.Json;
-
-namespace MoviesGroup.UI.Http;
+﻿namespace MoviesGroup.UI.Http;
 
 public class MovieHttpClient
 {   

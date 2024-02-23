@@ -1,6 +1,4 @@
-﻿@using MoviesGroup.UI.Models.Link
-
-@if (LinkOption is not null)
+﻿@if (LinkOption is not null)
 {
     <button class="btn btn-link text-start text-decoration-none py-0 @(LinkOption.IsSelected ? "ps-0" : "ps-3")" @onclick="OnClick">
         @if (LinkOption.IsSelected)

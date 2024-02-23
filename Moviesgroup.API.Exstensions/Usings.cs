@@ -2,3 +2,4 @@
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Builder;
 global using MoviesGroup.Data.Services;
+global using Microsoft.AspNetCore.Mvc;
