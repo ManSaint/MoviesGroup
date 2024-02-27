@@ -85,13 +85,13 @@
         //TODO: Visa produkterna i shopping carten
         //TODO: Ta bort produkt från shopping cart
         var cartItem = mapper.Map<CartItemDTO>(movie);
-        cartItem.Genre = movie.Genres!.FirstOrDefault(g => g.IsSelected);
-        cartItem.Actor = movie.Actors!.FirstOrDefault(ac => ac.IsSelected);
+        cartItem.Actor = movie.Actors!.FirstOrDefault();
         cartItem.AgeLimit = movie.AgeLimit;
         cartItem.StreamingService = movie.StreamingService;
         cartItem.ReleaseYear = movie.ReleaseYear;
         Service!.CartItems.Add(cartItem);
         await Service!.SaveToStorage("CartItems", Service!.CartItems);
+        await OnChange.InvokeAsync(Service); 
 
         //await Storage.SetAsync("MyKey", product);
         //await Service!.SaveToStorage("MyKey", product);
