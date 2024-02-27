@@ -1,4 +1,6 @@
-﻿namespace MoviesGroup.Data.Services;
+﻿using System.Linq.Expressions;
+
+namespace MoviesGroup.Data.Services;
 
 public class DbService : IDbService
 {

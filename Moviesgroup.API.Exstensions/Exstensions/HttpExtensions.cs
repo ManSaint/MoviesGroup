@@ -1,4 +1,6 @@
-﻿namespace MoviesGroup.API.Extensions;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace MoviesGroup.API.Extensions;
 
 public static class HttpExtensions
 {

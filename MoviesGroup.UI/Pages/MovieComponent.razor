@@ -1,7 +1,7 @@
 ﻿@inject IMapper mapper
 
 <secttion>
-    <h3>ProductComponent</h3>
+@*     <h3>ProductComponent</h3> *@
 </secttion>
 <section class="d-flex flex-wrap">
     @foreach (var movie in Service!.Movies)
@@ -15,6 +15,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@movie.Name</h5>
                         <p class="card-text">@movie.Description.Truncate(300)</p>
+                        <button class="btn btn-sm btn-success" @onclick="() => AddToCart(movie)"><i class="bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -86,9 +87,9 @@
         var cartItem = mapper.Map<CartItemDTO>(movie);
         cartItem.Genre = movie.Genres!.FirstOrDefault(g => g.IsSelected);
         cartItem.Actor = movie.Actors!.FirstOrDefault(ac => ac.IsSelected);
-        cartItem.AgeLimit = movie.AgeLimits!.FirstOrDefault(ag => ag.IsSelected);
-        cartItem.StreamingService = movie.StreamingServices!.FirstOrDefault(s => s.IsSelected);
-        cartItem.ReleaseYear = movie.ReleaseYears!.FirstOrDefault(r => r.IsSelected);
+        cartItem.AgeLimit = movie.AgeLimit;
+        cartItem.StreamingService = movie.StreamingService;
+        cartItem.ReleaseYear = movie.ReleaseYear;
         Service!.CartItems.Add(cartItem);
         await Service!.SaveToStorage("CartItems", Service!.CartItems);
 

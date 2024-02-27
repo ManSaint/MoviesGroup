@@ -31,7 +31,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="images/SiteIcon3.png" alt="Site logo" /></a>
+        <a class="navbar-brand" href="#"><img src="images/SiteLogo2.png" alt="Site logo" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler2" aria-controls="navbarToggler2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +55,7 @@
                             class="btn btn-outline-success rounded-0">
                         <i class="bi bi-cart"></i>
                     </button>
-                    <div class="cart-count bg-danger text-white rounded-circle position-absolute">@UICartService!.CartItems.Count</div>
+                    <div class="cart-count badge rounded-pill text-bg-danger position-absolute" style="top: -10px; right: -10px;">@UICartService!.CartItems.Count</div>
                 </div>
                 <div></div>
             </div>
@@ -66,17 +66,17 @@
 <CartComponent />
 
 @code {
-    // [Parameter] public UIService? UICartService { get; set; }
+    [Parameter] public UIService? UICartService { get; set; }
 
-    // protected override async Task OnParametersSetAsync()
-    // {
-    //     UICartService!.CartItems =
-    //         await UICartService!.ReadStorage<List<CartItemDTO>>("CartItems") ?? [];
-    // }
+    protected override async Task OnParametersSetAsync()
+    {
+        UICartService!.CartItems =
+            await UICartService!.ReadStorage<List<CartItemDTO>>("CartItems") ?? [];
+    }
 
-    // async Task OnRemoveCartItem(CartItemDTO? cartItem)
-    // {
-    //     UICartService!.CartItems.Remove(cartItem);
-    //     await UICartService!.SaveToStorage("CartItems", UICartService!.CartItems);
-    // }
+    async Task OnRemoveCartItem(CartItemDTO? cartItem)
+    {
+        UICartService!.CartItems.Remove(cartItem);
+        await UICartService!.SaveToStorage("CartItems", UICartService!.CartItems);
+    }
 }

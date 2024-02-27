@@ -1,4 +1,6 @@
-﻿namespace MoviesGroup.UI.Services;
+﻿using MoviesGroup.UI.Storage.Services;
+
+namespace MoviesGroup.UI.Services;
 
 public class UIService(GenreHttpClient genreHttp,
     MovieHttpClient movieHttp, IMapper mapper, IStorageService storage)
