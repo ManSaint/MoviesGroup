@@ -3,55 +3,60 @@
 <secttion>
 @*     <h3>ProductComponent</h3> *@
 </secttion>
+[14:04] Alexander Sjolund
 <section class="d-flex flex-wrap">
-    @foreach (var movie in Service!.Movies)
-    {
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="@movie.PictureURL" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">@movie.Name</h5>
-                        <p class="card-text">@movie.Description.Truncate(300)</p>
-                        <button class="btn btn-sm btn-success" @onclick="() => AddToCart(movie)"><i class="bi-cart"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex card-footer bg-white g-0 justify-content-start">
-@*                 @if (product.Actors!.Count > 0)
-                {
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        @foreach (var size in product.Actors)
-                        {
-                            <input type="radio" class="btn-check" name="btnradio"
-                                   id="size-@product.Id-@size.Id"
-                                   @onclick="() => OnSizeClick(product, size)"
-                                   autocomplete="off" checked>
-                            <label class="btn btn-outline-primary btn-radio"
-                                   for="size-@product.Id-@size.Id">@size.Name.ToUpper()</label>
-                        }
-                    </div>
-                } *@
-@*                 @if (product.Colors!.Count > 0)
-                {
-                    foreach (var color in product.Colors)
-                    {
-                        <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="color-@product.Id-@color.Id" id="color-@product.Id-@color.Id"
-                                   autocomplete="off" @onclick="() => OnColorClick(product, color)">
-                            <label class="btn btn-sm btn-outline-primary"
-                                   style="background-color:#@color.BGColor; color:#@(color.IsSelected ? color.TextColor : color.BGColor)"
-                                   for="color-@product.Id-@color.Id"><i class="bi-check"></i></label>
-                        </div>
-                    }
-                } *@
 
-        <button class="btn btn-sm btn-success" @onclick="() => AddToCart(movie)"><i class="bi-cart"></i></button>
-            </div> 
+    @foreach (var movie in Service!.Movies)
+
+    {
+
+        <div class="card mb-3 mt-3 me-5" style="max-width: 440px; max-height: 340px;">
+
+            <div class="row g-0">
+
+                <div class="col-md-4">
+
+                    <img src="@movie.PictureURL" class="img-fluid rounded-start" alt="...">
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">@movie.Name</h5>
+
+                        <p class="card-text">@movie.Description.Truncate(300)</p>
+
+                    </div>
+
+                </div>
+
             </div>
+
+            <div class="d-flex card-footer bg-white g-0 justify-content-start">
+
+                <button class="btn btn-sm btn-success" @onclick="() => AddToCart(movie)"><i class="bi-cart"></i></button>
+
+                <div class="ms-2 badge text-bg-light text-center rounded-0 fw-normal">
+
+                    @foreach (var actor in movie.Actors!) // A loop is necessary to iterate through the List of Actors to find the names.
+
+                    {
+
+                        <span>@actor.Name</span>
+                        // And then we can put out the names related to the production.
+
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
     }
+
 </section>
 
 @code {
