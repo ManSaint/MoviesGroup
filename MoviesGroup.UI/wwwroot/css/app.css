@@ -108,6 +108,14 @@ a, .btn-link {
     margin-left: -9px;
 }
 
+#cardID {
+    max-width: 440px;
+    max-height: 340px;
+}
+
+#cardContainer {
+    width: 100%;
+}
 
 
 code {
