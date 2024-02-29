@@ -98,6 +98,18 @@ a, .btn-link {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
+#navbarIMG {
+    height: 50px;
+    width: 147%;
+}
+
+.navbar-brand {
+    margin: -4px;
+    margin-left: -9px;
+}
+
+
+
 code {
     color: #c02d76;
 }
