@@ -1,12 +1,12 @@
 ﻿<div class="d-flex">
     <img src="@CartItem!.PictureURL" style=" width: 100px; height: 100px;" />
-    <div class="d-flex flex-column ms-3">
+    <div class="d-flex flex-column ms-3 mb-5">
         <div class="d-flex flex-column">
             <h3>@CartItem!.Name</h3>
             <p>@CartItem!.Description</p>
             <table class="table mb-0">
                 <tbody>
-                    <tr><td class="border-0 p-0">Actor</td><td class="border-0 p-0"><div class="ms-2 badge text-bg-light rounded-0 fw-normal">@CartItem.Actor!.Name</div></td></tr> @* LÄGG TILL AGELIMIT, RELEASEYEAR, ACTOR OSV !!!!!!!!!!!!!!*@
+                    <tr><td class="d-flex flex-wrap border-0 p-0">Actors</td><td class="border-0 p-0"><div class="ms-2 badge text-bg-light rounded-0 fw-normal"><span>@string.Join(", ", CartItem.Actors.Select(actor => actor.Name))</span></div></td></tr> @* LÄGG TILL AGELIMIT, RELEASEYEAR, ACTOR OSV !!!!!!!!!!!!!!*@
                     <tr><td class="border-0 p-0">Age</td><td class="border-0 p-0"><div class="ms-2 badge rounded-0 fw-normal text-black">@CartItem.AgeLimit.Limit</div></td></tr>
                     <tr><td class="border-0 p-0">Streaming service</td><td class="border-0 p-0"><div class="ms-2 badge rounded-0 fw-normal text-black">@CartItem.StreamingService.Name</div></td></tr>
                     <tr><td class="border-0 p-0">Release year</td><td class="border-0 p-0"><div class="ms-2 badge rounded-0 fw-normal text-black">@CartItem.ReleaseYear.Year</div></td></tr>

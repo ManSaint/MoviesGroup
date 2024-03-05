@@ -19,7 +19,7 @@ void ConfigureAutoMapper()
     var config = new MapperConfiguration(cfg =>
     {
         cfg.CreateMap<GenreGetDTO, LinkOption>().ReverseMap();
-        cfg.CreateMap<MovieGetDTO, CartItemDTO>().ReverseMap();
+        cfg.CreateMap<MovieGetDTO, CartItemDTO>().ForMember(dest => dest.Actors, opt => opt.MapFrom(src => src.Actors)).ReverseMap();
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);

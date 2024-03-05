@@ -29,7 +29,7 @@ public class CartItemDTO : MoviePutDTO
 {
     //public List<GenreSmallGetDTO>? Genres { get; set; }
     public GenreGetDTO? Genre { get; set; } // Might require migration and database update to make it work. NOT THE CASE.
-    public ActorGetDTO? Actor { get; set; }
+    public List<ActorGetDTO>? Actors { get; set; }
     public ReleaseYearGetDTO? ReleaseYear { get; set; } // Check which need to be List and which do not.
     public StreamingServiceGetDTO? StreamingService { get; set; }
     public AgeLimitGetDTO? AgeLimit { get; set; }

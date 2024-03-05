@@ -17,6 +17,11 @@ public class UIService(GenreHttpClient genreHttp,
     ];
     public int CurrentGenreId { get; set; }
 
+    //public string GetActorsString(List<ActorGetDTO> actors)
+    //{
+    //    return string.Join(", ", actors.Select(actor => actor.Name));
+    //}
+
     public async Task GetLinkGroup()
     {
         Genres = await genreHttp.GetGenresAsync();
