@@ -121,6 +121,10 @@ a, .btn-link {
     margin-top: 0px!important;
 }
 
+#actorFooter {
+    white-space: pre-line
+}
+
 code {
     color: #c02d76;
 }
