@@ -27,7 +27,7 @@ public class UIService(GenreHttpClient genreHttp,
         Genres = await genreHttp.GetGenresAsync();
         GenreLinkGroups[0].LinkOptions = mapper.Map<List<LinkOption>>(Genres);
         var linkOption = GenreLinkGroups[0].LinkOptions.FirstOrDefault();
-        linkOption!.IsSelected = true;
+        //linkOption!.IsSelected = true;
     }
 
     public async Task OnGenreLinkClick(int id)
