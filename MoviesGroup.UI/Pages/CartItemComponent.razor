@@ -6,14 +6,14 @@
             <p>@CartItem!.Description</p>
             <table class="table mb-0">
                 <tbody>
-                    <tr><td class="d-flex flex-wrap border-0 p-0">Actors</td><td class="border-0 p-0"><div class="ms-2 badge text-bg-light rounded-0 fw-normal"><span>@string.Join(", ", CartItem.Actors.Select(actor => actor.Name))</span></div></td></tr> @* LÄGG TILL AGELIMIT, RELEASEYEAR, ACTOR OSV !!!!!!!!!!!!!!*@
-                    <tr><td class="border-0 p-0">Age</td><td class="border-0 p-0"><div class="ms-2 badge rounded-0 fw-normal text-black">@CartItem.AgeLimit.Limit</div></td></tr>
-                    <tr><td class="border-0 p-0">Streaming service</td><td class="border-0 p-0"><div class="ms-2 badge rounded-0 fw-normal text-black">@CartItem.StreamingService.Name</div></td></tr>
-                    <tr><td class="border-0 p-0">Release year</td><td class="border-0 p-0"><div class="ms-2 badge rounded-0 fw-normal text-black">@CartItem.ReleaseYear.Year</div></td></tr>
+                    <tr><td class="d-flex flex-wrap border-0 p-0" style="min-width:196px">Actors:</td><td class="border-0 p-0"><div class="ms-2 text-black rounded-0 fw-normal"><span>@string.Join(", ", CartItem.Actors.Select(actor => actor.Name))</span></div></td></tr> @* LÄGG TILL AGELIMIT, RELEASEYEAR, ACTOR OSV !!!!!!!!!!!!!!*@
+                    <tr><td class="border-0 p-0">Age:</td><td class="border-0 p-0"><div class="ms-2 rounded-0 fw-normal text-black">@CartItem.AgeLimit.Limit</div></td></tr>
+                    <tr><td class="border-0 p-0">Platform:</td><td class="border-0 p-0"><div class="ms-2 rounded-0 fw-normal text-black">@CartItem.StreamingService.Name</div></td></tr>
+                    <tr><td class="border-0 p-0">Release year:</td><td class="border-0 p-0"><div class="ms-2 rounded-0 fw-normal text-black">@CartItem.ReleaseYear.Year</div></td></tr>
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-danger btn-sm mt-2" @onclick="RemoveItem">Remove</button>
+        <button class="btn btn-danger btn-sm mt-2" style="width:50%" @onclick="RemoveItem">Remove</button>
     </div>
 </div>
 
