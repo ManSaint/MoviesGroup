@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.UI.Models", "Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.UI.Http", "MoviesGroup.UI.Http\MoviesGroup.UI.Http.csproj", "{2E9B2479-BA52-4510-AAF6-3A3B8C02F322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.UI.Storage", "MoviesGroup.UI.Storage\MoviesGroup.UI.Storage.csproj", "{95A0E6A5-E686-4E79-A110-5AE989DCB365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesGroup.UI.Storage", "MoviesGroup.UI.Storage\MoviesGroup.UI.Storage.csproj", "{95A0E6A5-E686-4E79-A110-5AE989DCB365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesGroup.UI.Admin", "MoviesGroup.UI.Admin\MoviesGroup.UI.Admin.csproj", "{B67519F9-35F6-4A2F-B5E1-268BF26EBD18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{95A0E6A5-E686-4E79-A110-5AE989DCB365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95A0E6A5-E686-4E79-A110-5AE989DCB365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95A0E6A5-E686-4E79-A110-5AE989DCB365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67519F9-35F6-4A2F-B5E1-268BF26EBD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67519F9-35F6-4A2F-B5E1-268BF26EBD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67519F9-35F6-4A2F-B5E1-268BF26EBD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67519F9-35F6-4A2F-B5E1-268BF26EBD18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
