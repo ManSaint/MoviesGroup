@@ -1,0 +1,38 @@
+﻿@page "/Actor"
+@inject AdminUIService Service
+
+<PageTitle>Actor</PageTitle>
+
+<h1>Create actor</h1><br />
+
+<button class="btn btn-success" @* @onclick="OnPost" *@>Add actor</button><br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var item in Service.Actors)
+    {
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await Service.GetAllActorsAsync();
+    }
+}
